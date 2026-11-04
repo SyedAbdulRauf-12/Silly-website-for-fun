@@ -7,7 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <audio id="roasting-sound" src="Laughing Cat Meme.mp3" preload="auto"></audio>
+    <!-- Fullscreen Entry Modal -->
+<div id="entry-overlay" class="overlay">
+    <div class="overlay-card">
+        <div class="overlay-icon">⚠️</div>
+        <h2>Security Notice</h2>
+        <p>This session requires user verification before loading resources.</p>
+        <button id="enter-btn" class="overlay-btn">Click to Proceed</button>
+    </div>
+</div>
+
+<!-- Audio element (place your audio file in the project folder) -->
+<audio id="warning-sound" src="Laughing Cat Meme.mp3" preload="auto"></audio>
     <!-- Header / Navigation -->
     <header class="navbar">
         <div class="logo">Security Awareness</div>
