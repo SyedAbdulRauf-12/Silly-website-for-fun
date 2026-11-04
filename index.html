@@ -159,6 +159,87 @@
             font-size: 0.85em;
             font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
         }
+        /* --- Trap Link Styling --- */
+        .alert-link {
+            color: #cf222e;
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        .alert-link:hover {
+            color: #a40e26;
+        }
+        
+        /* --- Second Popup Modal --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99998;
+            opacity: 1;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .popup-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        
+        .popup-card {
+            position: relative;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 440px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            font-size: 1.8rem;
+            line-height: 1;
+            color: #656d76;
+            cursor: pointer;
+        }
+        
+        .close-btn:hover {
+            color: #1f2328;
+        }
+        
+        .popup-title {
+            color: #cf222e;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .popup-subtext {
+            font-size: 0.95rem;
+            color: #57606a;
+            margin-bottom: 1rem;
+        }
+        
+        .popup-img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #d0d7de;
+        }
     </style>
 </head>
 <body>
@@ -196,7 +277,7 @@
             <h2>What is a Phishing Link?</h2>
             <p>
                 A phishing link is a deceptive hyperlink (the bluish text you can click on) crafted by malicious actors to masquerade (impersonate)
-                as a legitimate service—such as your email provider, bank, cloud drive, or social platform. 
+                as a legitimate service—such as your email provider, bank, cloud drive, or social platform. <br>
                 These links arrive disguised within spoofed emails, social engineering messages (like my story hehe😈), or urgent 
                 SMS texts (smishing). Their goal is to exploit human trust (I'm sorry but you learning something new🤷‍♂️), curiosity, or urgency to trick 
                 you into initiating an unverified connection. <a href="#" id="trap-link" class="alert-link">Click here to verify you understood!</a>
@@ -204,7 +285,7 @@
             <h2>Why You Shouldn't Click Random or Unknown Links</h2>
             <p>
                 Interacting with an unvetted link bypasses initial email/browser filters and exposes your 
-                device to severe attack vectors:
+                device to severe attack vectors: <br>
             </p>
             <ul class="warning-list">
                 <li>
@@ -239,7 +320,7 @@
                         Look closely for subdomain manipulation (e.g., <code>login.microsoft.com.attacker.com</code>).
                     </li>
                     <li>
-                        typosquatting (Bad websites whose names mimic real legit ones.) or 
+                        Typosquatting (Bad websites whose names mimic real legit ones.) or 
                         unusual top-level domains(the final segment of a domain name that appears directly after the dot, such as .com in example.com) 
                         before submitting any data.
                     </li>
@@ -249,18 +330,51 @@
     </main>
 
     <script>
-        const overlay = document.getElementById("entry-overlay");
-        const enterBtn = document.getElementById("enter-btn");
-        const audio = document.getElementById("warning-sound");
+        document.addEventListener("DOMContentLoaded", () => {
+    // Initial entry overlay elements
+    const entryOverlay = document.getElementById("entry-overlay");
+    const enterBtn = document.getElementById("enter-btn");
+    const audio = document.getElementById("warning-sound");
 
+    // Second modal elements
+    const trapLink = document.getElementById("trap-link");
+    const trapModal = document.getElementById("trap-modal");
+    const closeModalBtn = document.getElementById("close-modal-btn");
+    const dismissBtn = document.getElementById("dismiss-btn");
+
+    // Function to play sound from the beginning
+    const replayAudio = () => {
+        if (audio) {
+            audio.currentTime = 0; // Rewind to start
+            audio.play().catch(err => console.log("Audio blocked:", err));
+        }
+    };
+
+    // First button (initial entry)
+    if (enterBtn) {
         enterBtn.addEventListener("click", () => {
-            // Play audio
-            if (audio) {
-                audio.play().catch(err => console.log("Audio playback blocked or failed:", err));
-            }
-            // Dismiss overlay
-            overlay.classList.add("hidden");
+            replayAudio();
+            entryOverlay.classList.add("hidden");
         });
+    }
+
+    // Trap link click
+    if (trapLink) {
+        trapLink.addEventListener("click", (e) => {
+            e.preventDefault(); // Stop page from jumping to top
+            replayAudio();
+            trapModal.classList.remove("hidden");
+        });
+    }
+
+    // Close second modal
+    const closeTrapModal = () => {
+        trapModal.classList.add("hidden");
+    };
+
+    if (closeModalBtn) closeModalBtn.addEventListener("click", closeTrapModal);
+    if (dismissBtn) dismissBtn.addEventListener("click", closeTrapModal);
+});
     </script>
     <div id="trap-modal" class="popup-overlay hidden">
     <div class="popup-card">
