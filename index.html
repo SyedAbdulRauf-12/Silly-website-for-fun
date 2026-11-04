@@ -3,78 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fooled you!</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Security Awareness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f6f8fa;
+            color: #24292f;
+            line-height: 1.6;
+        }
+
+        /* --- Fullscreen Modal Overlay --- */
+        #entry-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            opacity: 1;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        #entry-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .overlay-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay-card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #1f2328;
+        }
+
+        .overlay-card p {
+            font-size: 0.95rem;
+            color: #57606a;
+            margin-bottom: 1.5rem;
+        }
+
+        .overlay-btn {
+            background-color: #cf222e;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.8rem 1.6rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .overlay-btn:hover {
+            background-color: #a40e26;
+        }
+
+        .overlay-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* --- Page Header & Hero Section --- */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #d0d7de;
+            padding: 1rem 2rem;
+            font-weight: 600;
+        }
+
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .hero-img {
+            max-width: 90%;
+            max-height: 70vh;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        /* --- Text Section --- */
+        .content-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .info-card h2 {
+            color: #0969da;
+            margin-bottom: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-card h2:first-of-type {
+            margin-top: 0;
+        }
+
+            /* --- Highlighted Callout Box --- */
+        .tip-box {
+        background-color: #ddf4ff;
+        border-left: 4px solid #0969da;
+        padding: 1.2rem;
+        border-radius: 0 6px 6px 0;
+        margin-top: 1.5rem;
+        }
+
+        .tip-box h3 {
+            font-size: 1.1rem;
+            color: #0969da;
+            margin-bottom: 0.4rem;
+        }
+        
+        .tip-box p {
+            margin-bottom: 0;
+            color: #1f2328;
+            font-size: 0.95rem;
+        }
+        
+        code {
+            background-color: #afb8c133;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+        }
+    </style>
 </head>
 <body>
-        <!-- Fullscreen Entry Modal -->
-    <div id="entry-overlay" class="overlay">
+
+    <!-- Fullscreen Modal -->
+    <div id="entry-overlay">
         <div class="overlay-card">
-            <div class="overlay-icon">⚠️</div>
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚠️</div>
             <h2>Security Notice</h2>
             <p>This session requires user verification before loading resources.</p>
             <button id="enter-btn" class="overlay-btn">Click to Proceed</button>
         </div>
     </div>
 
-    <!-- Audio element (place your audio file in the project folder) -->
+    <!-- Audio Element -->
     <audio id="warning-sound" src="Laughing Cat Meme.mp3" preload="auto"></audio>
-    <!-- Header / Navigation -->
-    <header class="navbar">
-        <div class="logo">Security Awareness</div>
-    </header>
 
-    <!-- Big Center Image Section -->
+    <!-- Page Content -->
+    <header class="navbar">Security Awareness</header>
+
     <section class="hero-section">
-        <div class="image-wrapper">
-            <!-- Replace 'hero.jpg' with your actual image path or URL -->
-            <img src="cat.jpg" alt="Phishing Alert Banner" class="hero-img">
-        </div>
+        <!-- Change 'cat.jpg' to your actual image filename -->
+        <img src="cat.jpg" alt="Phishing Alert" class="hero-img">
     </section>
 
-    <!-- Informational Content Section -->
     <main class="content-container">
         <article class="info-card">
-            <h2>You just fell hook, line and sinker, for that link! </h2>
+            <h2>Hook, Line and SINKER!! </h2>
             <p>
-                Now, I could have been a malicious person and could have probably redirected you to some shady website
-                that asked for your login info or downloaded some apps secretly or run some hidden files. But be grateful you
-                fell victim to ME, so I can make sure that you cannot fall victim to ANYONE else!
-                <br>
-                So let us understand,
+                Right now you just fell for the oldest trick in the cybersecurity book 🫵!<br>
+                I could have been a bad person and redirected you to some fake login website and got your info, or run some sketchy apps on your device😈!
+                But, be grateful it was only me, your friendly neighbourhood cybersecurity student and you fell victim to ME but I will make sure you wont fall victim to ANYONE ELSE!
+                SO, let us understand,
             </p>
-            
             <h2>What is a Phishing Link?</h2>
             <p>
-                A phishing link is a deceptive hyperlink (link that you can click on, the bluish text) crafted by malicious actors to masquerade (imposter, fake) 
-                as a legitimate website (such as your bank, email provider, or streaming service). 
-                These links are typically sent via spoofed emails, social media messages/stories containing links 😈, or suspicious 
-                text messages (smishing) designed to manipulate human trust.
+                A phishing link is designed by attackers to look like a legitimate link (like the one you clicked on my story) while harvesting credentials (your passwords and account are now mine! hehe jk😈) or distributing malicious payloads (nasty viruses that will make your device run wonky-tonky).
+                So now you understood what is a phishing link, let us understand,
             </p>
-
-            <h2>Why You Shouldn't Click Random or Unknown Links</h2>
-            <p>
-                Clicking an unverified link bypasses (skips) many basic defenses, triggering risks such as:
-            </p>
-            <ul class="warning-list">
-                <li><strong>Credential Harvesting:</strong> Fake login portals capture usernames, passwords, and 2FA tokens directly and your account is now gone! Like my other 3 accounts 🥲</li>
-                <li><strong>Drive-by Downloads:</strong> Visiting an exploited web page can silently execute scripts to install ransomware, spyware, or keyloggers and now I could take away your passwords, bank details and many more sensitive information.</li>
-                <li><strong>Session Hijacking:</strong> Malicious scripts can steal valid authentication cookies, granting attackers direct account access although this is a bit advanced and its unlikely it would happen but still its good to be aware.</li>
-            </ul>
+            
+            <h2>Why to Avoid Unknown Links?</h2>
+            <p>Clicking random links can trigger drive-by malware downloads (Malware that is downloaded without your knowledge.), credential theft (sites that impersonate legit websites to steal your info, yes YOUR ACCOUNT INFO!), or browser session compromise(its a bit advanced and unlikely to happen but still good to have awareness.).</p>
 
             <div class="tip-box">
-                <h3>💡 Quick Defense Tips from yours truly</h3>
+                <h3>💡 Quick Defense Tip</h3>
                 <p>
-                    Always <strong>hover before you click</strong> to preview the actual destination URL. Check for homoglyph attacks (letters that look same but are not), mismatched domains (speeling mistoks in the webcites), or unusual top-level domains (e.g., <code>.xyz</code>, <code>.top</code>) before interacting.
+                    Always <strong>hover before you click</strong> to preview the actual destination URL. Look out for slight misspellings (typosquatting), mismatched domains, or unusual top-level domains (e.g., <code>.xyz</code>, <code>.top</code>) before entering any sensitive details.
                 </p>
             </div>
+            
         </article>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Cybersecurity Awareness Demo. Stay vigilant.</p>
-    </footer>
+    <script>
+        const overlay = document.getElementById("entry-overlay");
+        const enterBtn = document.getElementById("enter-btn");
+        const audio = document.getElementById("warning-sound");
 
+        enterBtn.addEventListener("click", () => {
+            // Play audio
+            if (audio) {
+                audio.play().catch(err => console.log("Audio playback blocked or failed:", err));
+            }
+            // Dismiss overlay
+            overlay.classList.add("hidden");
+        });
+    </script>
 </body>
 </html>
