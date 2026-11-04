@@ -3,22 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fooled You</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Fooled you!</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome</h1>
+    <audio id="roasting-sound" src="alert.mp3" preload="auto"></audio>
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="logo">Security Awareness</div>
     </header>
 
-    <main>
-        <p>Hello, World!</p>
+    <!-- Big Center Image Section -->
+    <section class="hero-section">
+        <div class="image-wrapper">
+            <!-- Replace 'hero.jpg' with your actual image path or URL -->
+            <img src="hero.jpg" alt="Phishing Alert Banner" class="hero-img">
+        </div>
+    </section>
+
+    <!-- Informational Content Section -->
+    <main class="content-container">
+        <article class="info-card">
+            <h2>You just fell hook, line and sinker, for that link! </h2>
+            
+            <h2>What is a Phishing Link?</h2>
+            <p>
+                A phishing link is a deceptive hyperlink crafted by malicious actors to masquerade 
+                as a legitimate website (such as your bank, email provider, or streaming service). 
+                These links are typically sent via spoofed emails, social media messages, or suspicious 
+                text messages (smishing) designed to manipulate human trust.
+            </p>
+
+            <h2>Why You Shouldn't Click Random or Unknown Links</h2>
+            <p>
+                Clicking an unverified link bypasses many basic defenses, triggering risks such as:
+            </p>
+            <ul class="warning-list">
+                <li><strong>Credential Harvesting:</strong> Fake login portals capture usernames, passwords, and 2FA tokens directly.</li>
+                <li><strong>Drive-by Downloads:</strong> Visiting an exploited web page can silently execute scripts to install ransomware, spyware, or keyloggers.</li>
+                <li><strong>Session Hijacking:</strong> Malicious scripts can steal valid authentication cookies, granting attackers direct account access.</li>
+            </ul>
+
+            <div class="tip-box">
+                <h3>💡 Quick Defense Tip</h3>
+                <p>
+                    Always <strong>hover before you click</strong> to preview the actual destination URL. Check for homoglyph attacks, mismatched domains, or unusual top-level domains (e.g., <code>.xyz</code>, <code>.top</code>) before interacting.
+                </p>
+            </div>
+        </article>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 My Website</p>
+        <p>&copy; 2026 Cybersecurity Awareness Demo. Stay vigilant.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
