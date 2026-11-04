@@ -195,20 +195,56 @@
             </p>
             <h2>What is a Phishing Link?</h2>
             <p>
-                A phishing link is designed by attackers to look like a legitimate link (like the one you clicked on my story) while harvesting credentials (your passwords and account are now mine! hehe jk😈) or distributing malicious payloads (nasty viruses that will make your device run wonky-tonky).
-                So now you understood what is a phishing link, let us understand,
+                A phishing link is a deceptive hyperlink (the bluish text you can click on) crafted by malicious actors to masquerade (impersonate)
+                as a legitimate service—such as your email provider, bank, cloud drive, or social platform. 
+                These links arrive disguised within spoofed emails, social engineering messages (like my story hehe😈), or urgent 
+                SMS texts (smishing). Their goal is to exploit human trust (I'm sorry but you learning something new🤷‍♂️), curiosity, or urgency to trick 
+                you into initiating an unverified connection. <a href="#" id="trap-link" class="alert-link">Click here to verify you understood!</a>
             </p>
-            
-            <h2>Why to Avoid Unknown Links?</h2>
-            <p>Clicking random links can trigger drive-by malware downloads (Malware that is downloaded without your knowledge.), credential theft (sites that impersonate legit websites to steal your info, yes YOUR ACCOUNT INFO!), or browser session compromise(its a bit advanced and unlikely to happen but still good to have awareness.).</p>
+            <h2>Why You Shouldn't Click Random or Unknown Links</h2>
+            <p>
+                Interacting with an unvetted link bypasses initial email/browser filters and exposes your 
+                device to severe attack vectors:
+            </p>
+            <ul class="warning-list">
+                <li>
+                    <strong>Credential Harvesting:</strong> Cloned login interfaces capture typed usernames, 
+                    passwords, and session MFA codes in real time, granting attackers direct unauthorized access.
+                </li>
+                <li>
+                    <strong>Drive-by Downloads:</strong> Malicious web servers can silently exploit known browser 
+                    or plugin vulnerabilities to drop background payloads—such as keyloggers, info-stealers, or ransomware.
+                </li>
+                <li>
+                    <strong>Session & Token Hijacking:</strong> Specialized scripts can extract stored session cookies 
+                    or OAuth tokens, allowing attackers to bypass multi-factor authentication without ever knowing your password.
+                </li>
+                <li>
+                    <strong>Reconnaissance & Validation:</strong> Simply clicking a personalized tracking link confirms to 
+                    attackers that your email or number is active, resulting in immediate escalation of targeted social engineering campaigns.
+                </li>
+            </ul>
 
             <div class="tip-box">
-                <h3>💡 Quick Defense Tip</h3>
-                <p>
-                    Always <strong>hover before you click</strong> to preview the actual destination URL. Look out for slight misspellings (typosquatting), mismatched domains, or unusual top-level domains (e.g., <code>.xyz</code>, <code>.top</code>) before entering any sensitive details.
-                </p>
+                <h3>💡Defense Tips from yours truly:</h3>
+                <ul>
+                    <li>
+                        Never click on any links sent from untrusted sources (you can trust me 😉)
+                        Because prevention is better than cure!
+                    <li>
+                        Always <strong>hover before you click</strong> to inspect the destination domain. You can check
+                        if the domain url is legit or not without even clicking it.
+                    </li>
+                    <li>
+                        Look closely for subdomain manipulation (e.g., <code>login.microsoft.com.attacker.com</code>).
+                    </li>
+                    <li>
+                        typosquatting (Bad websites whose names mimic real legit ones.) or 
+                        unusual top-level domains(the final segment of a domain name that appears directly after the dot, such as .com in example.com) 
+                        before submitting any data.
+                    </li>
+                </ul>
             </div>
-            
         </article>
     </main>
 
@@ -226,5 +262,19 @@
             overlay.classList.add("hidden");
         });
     </script>
+    <div id="trap-modal" class="popup-overlay hidden">
+    <div class="popup-card">
+        <button id="close-modal-btn" class="close-btn">&times;</button>
+        <h3 class="popup-title">⚠️ Phished Again!</h3>
+        <p class="popup-subtext">You just clicked another untrusted link. DIDNT I JUST TELL YOU!</p>
+        
+        <!-- Replace 'cat.jpg' with whatever surprise/meme image you want -->
+        <img src="cat.jpg" alt="Caught" class="popup-img">
+        
+        <button id="dismiss-btn" class="overlay-btn" style="width: 100%; margin-top: 1rem;">
+            Lesson Learned
+        </button>
+    </div>
+</div>
 </body>
 </html>
